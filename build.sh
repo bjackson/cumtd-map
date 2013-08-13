@@ -1,2 +1,2 @@
 gem build cumtd.gemspec 
-gem install cumtd
+gem install -l cumtd

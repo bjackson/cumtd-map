@@ -6,7 +6,8 @@ Gem::Specification.new do |s|
   s.description = "An interface to CUMTD's API."
   s.authors     = ["Brett Jackson"]
   s.email       = 'brett@brettjackson.org'
-  s.files       = ["lib/cumtd.rb"]
+  s.files       = ["lib/cumtd.rb", 'lib/stop.rb', 'lib/stop_point.rb', 'lib/departure.rb', \
+                   'lib/route.rb', 'lib/trip.rb']
   s.homepage    =
     'http://rubygems.org/gems/cumtd'
   s.license       = 'MIT'
