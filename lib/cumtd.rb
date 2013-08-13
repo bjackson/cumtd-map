@@ -1,4 +1,5 @@
 require 'httparty'
+require 'yaml'
 class CUMTD
 	require 'stop'
 	require 'stop_point'
@@ -30,8 +31,8 @@ class CUMTD
 
 		unless serialize_path == :no_serialize
 			p File.join(serialize_path, 'stops')
-			serialize_stops(File.join(serialize_path, 'stops'))
-			serialize_routes(File.join(serialize_path, 'routes'))
+			serialize_stops(File.join(serialize_path, 'stops.yaml'))
+			serialize_routes(File.join(serialize_path, 'routes.yaml'))
 		end
 
 	end
@@ -50,13 +51,13 @@ class CUMTD
 
 	def serialize_stops(file_location)
 		File.open(file_location, "wb") do |file|
-			Marshal.dump(@@all_stops,file)
+			YAML.dump(@@all_stops,file)
 		end
 	end
 
 	def serialize_routes(file_location)
 		File.open(file_location, "wb") do |file|
-			Marshal.dump(@@all_routes,file)
+			YAML.dump(@@all_routes,file)
 		end
 	end
 
@@ -197,7 +198,7 @@ class CUMTD
 	end
 
 	def get_shape_by_id(shape_id)
-		response = self.class.get("/GetShape?key=#{@api_key}&shape_id=#{shape_id}"
+		response = self.class.get("/GetShape?key=#{@api_key}&shape_id=#{shape_id}")
 		shapes = Array.new
 		response["shapes"].each do |shape|
 			shapes << Shape.new(shape)
@@ -206,7 +207,7 @@ class CUMTD
 	end
 
 	def get_shape_between_stops(begin_stop_id, end_stop_id, shape_id)
-		response = self.class.get("/GetShape?key=#{@api_key}&begin_stop_id=#{begin_stop_id}&end_stop_id=#{end_stop_id}&shape_id=#{shape_id}"
+		response = self.class.get("/GetShape?key=#{@api_key}&begin_stop_id=#{begin_stop_id}&end_stop_id=#{end_stop_id}&shape_id=#{shape_id}")
 		shapes = Array.new
 		response["shapes"].each do |shape|
 			shapes << Shape.new(shape)
@@ -216,9 +217,9 @@ class CUMTD
 
 	def get_stop_times_by_stop(stop_id, route_id=nil, date=Time.now.to_s)
 		if !route_id
-			response = self.class.get("/GetStopTimesByStop?key=#{@api_key}&stop_id=#{stop_id}"
+			response = self.class.get("/GetStopTimesByStop?key=#{@api_key}&stop_id=#{stop_id}")
 		else
-			response = self.class.get("/GetStopTimesByStop?key=#{@api_key}&stop_id=#{stop_id}&route_id=#{route_id}"
+			response = self.class.get("/GetStopTimesByStop?key=#{@api_key}&stop_id=#{stop_id}&route_id=#{route_id}")
 		end
 
 		stop_times = Array.new

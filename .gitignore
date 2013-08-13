@@ -2,3 +2,4 @@
 test.rb
 /vcr_cassettes
 *.gem
+map.rb
