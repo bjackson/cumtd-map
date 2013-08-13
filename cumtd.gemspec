@@ -1,7 +1,7 @@
 Gem::Specification.new do |s|
   s.name        = 'cumtd'
-  s.version     = '0.0.1'
-  s.date        = '2013-08-09'
+  s.version     = '0.1.0'
+  s.date        = '2013-08-12'
   s.summary     = "CUMTD API wrapper"
   s.description = "An interface to CUMTD's API."
   s.authors     = ["Brett Jackson"]
@@ -10,6 +10,6 @@ Gem::Specification.new do |s|
                    'lib/route.rb', 'lib/trip.rb', 'lib/stop_time.rb', 'lib/vehicle.rb', \
                    'lib/shape.rb']
   s.homepage    =
-    'http://rubygems.org/gems/cumtd'
+    'http://github.com/bjackson/cumtd'
   s.license       = 'MIT'
 end
