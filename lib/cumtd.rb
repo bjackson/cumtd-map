@@ -4,22 +4,24 @@ class CUMTD
 	require 'stop_point'
 	require 'departure'
 	require 'route'
+	require 'shape'
+	require 'trip'
+	require 'vehicle'
 	include HTTParty
 	base_uri 'developer.cumtd.com/api/v2.2/json'
-	def initialize(api_key, stops_file={}, routes_file={}, serialize_path=File.expand_path(File.dirname(__FILE__)))
+	def initialize(api_key, stops_file=nil, routes_file=nil, serialize_path=File.expand_path(File.dirname(__FILE__)))
 		@api_key = api_key
 
 		@@all_stops = Array.new
-		if stops_file?
+		if stops_file
 			object = nil
 			File.open(stops_file,"rb") {|f| @@all_stops = Marshal.load(f)}
 		else
 			self.get_stops
-			serialize_stops(file)
 		end
 
 		@@all_routes = Array.new
-		if routes_file?
+		if routes_file
 			object = nil
 			File.open(routes_file,"rb") {|f| @@all_routes = Marshal.load(f)}
 		else
@@ -27,6 +29,7 @@ class CUMTD
 		end
 
 		unless serialize_path == :no_serialize
+			p File.join(serialize_path, 'stops')
 			serialize_stops(File.join(serialize_path, 'stops'))
 			serialize_routes(File.join(serialize_path, 'routes'))
 		end
@@ -182,6 +185,47 @@ class CUMTD
 	def get_trip_by_id(trip_id)
 		response = self.class.get("/GetTrip?key=#{@api_key}&trip_id=#{trip_id}")
 		return Trip.new(response["trips"].first)
+	end
+
+	def get_trips_by_block(block_id)
+		response = self.class.get("/GetTripsByBlock?key=#{@api_key}&block_id=#{block_id}")
+		trips = Array.new
+		response["trips"].each do |trip|
+			trips << Trip.new(trip)
+		end
+		return trips
+	end
+
+	def get_shape_by_id(shape_id)
+		response = self.class.get("/GetShape?key=#{@api_key}&shape_id=#{shape_id}"
+		shapes = Array.new
+		response["shapes"].each do |shape|
+			shapes << Shape.new(shape)
+		end
+		return shapes
+	end
+
+	def get_shape_between_stops(begin_stop_id, end_stop_id, shape_id)
+		response = self.class.get("/GetShape?key=#{@api_key}&begin_stop_id=#{begin_stop_id}&end_stop_id=#{end_stop_id}&shape_id=#{shape_id}"
+		shapes = Array.new
+		response["shapes"].each do |shape|
+			shapes << Shape.new(shape)
+		end
+		return shapes
+	end
+
+	def get_stop_times_by_stop(stop_id, route_id=nil, date=Time.now.to_s)
+		if !route_id
+			response = self.class.get("/GetStopTimesByStop?key=#{@api_key}&stop_id=#{stop_id}"
+		else
+			response = self.class.get("/GetStopTimesByStop?key=#{@api_key}&stop_id=#{stop_id}&route_id=#{route_id}"
+		end
+
+		stop_times = Array.new
+		response["stop_times"].each do |stop_time|
+			stop_times << StopTime.new(stop_time)
+		end
+		return stop_times
 	end
 
 end
