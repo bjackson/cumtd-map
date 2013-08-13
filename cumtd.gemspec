@@ -7,7 +7,7 @@ Gem::Specification.new do |s|
   s.authors     = ["Brett Jackson"]
   s.email       = 'brett@brettjackson.org'
   s.files       = ["lib/cumtd.rb", 'lib/stop.rb', 'lib/stop_point.rb', 'lib/departure.rb', \
-                   'lib/route.rb', 'lib/trip.rb']
+                   'lib/route.rb', 'lib/trip.rb', 'lib/stop_time.rb']
   s.homepage    =
     'http://rubygems.org/gems/cumtd'
   s.license       = 'MIT'

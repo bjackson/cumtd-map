@@ -6,12 +6,31 @@ class CUMTD
 	require 'route'
 	include HTTParty
 	base_uri 'developer.cumtd.com/api/v2.2/json'
-	def initialize(api_key)
+	def initialize(api_key, stops_file={}, routes_file={}, serialize_path=File.expand_path(File.dirname(__FILE__)))
 		@api_key = api_key
+
 		@@all_stops = Array.new
-		self.get_stops
+		if stops_file?
+			object = nil
+			File.open(stops_file,"rb") {|f| @@all_stops = Marshal.load(f)}
+		else
+			self.get_stops
+			serialize_stops(file)
+		end
+
 		@@all_routes = Array.new
-		self.get_routes
+		if routes_file?
+			object = nil
+			File.open(routes_file,"rb") {|f| @@all_routes = Marshal.load(f)}
+		else
+			self.get_routes
+		end
+
+		unless serialize_path == :no_serialize
+			serialize_stops(File.join(serialize_path, 'stops'))
+			serialize_routes(File.join(serialize_path, 'routes'))
+		end
+
 	end
 
 	def api_key
@@ -26,12 +45,25 @@ class CUMTD
 		@@all_routes
 	end
 
+	def serialize_stops(file_location)
+		File.open(file_location, "wb") do |file|
+			Marshal.dump(@@all_stops,file)
+		end
+	end
+
+	def serialize_routes(file_location)
+		File.open(file_location, "wb") do |file|
+			Marshal.dump(@@all_routes,file)
+		end
+	end
+
 	def get_stops
 		response = self.class.get("/GetStops?key=#{@api_key}")
 		@@all_stops.clear
 		response["stops"].each do |stop|
 			@@all_stops << Stop.new(stop)
 		end
+
 	end
 
 	def get_routes
@@ -104,6 +136,52 @@ class CUMTD
 			end
 		end
 		return master_deps.sort_by! { |stop| stop["departures"].expected_mins  }
+	end
+
+	def get_stops_by_search(query, count=10)
+		response = self.class.get("/GetStopsBySearch?key=#{@api_key}&query=#{query}&count=#{count}")
+		stops = Array.new
+		response["stops"].each do |stop|
+			stops << Stop.new(stop)
+		end
+		return stops
+	end
+
+	def get_stop_times_by_trip(trip_id)
+		response = self.class.get("/GetStopTimesByTrip?key=#{@api_key}&trip_id=#{trip_id}")
+		stop_times = Array.new
+		response["stop_times"].each do |stop_time|
+			stop_times << StopTime.new(stop_time)
+		end
+		return stop_times
+	end
+
+	def get_vehicles
+		response = self.class.get("/GetVehicles?key=#{@api_key}")
+		vehicles = Array.new
+		response["vehicles"].each do |vehicle|
+			vehicles << Vehicle.new(vehicle)
+		end
+		return vehicles
+	end
+
+	def get_vehicle_by_id(vehicle_id)
+		response = self.class.get("/GetVehicle?key=#{@api_key}&vehicle_id=#{vehicle_id}")
+		return Vehicle.new(response["vehicles"].first)
+	end
+
+	def get_vehicles_by_route_id(route_id)
+		response = self.class.get("/GetVehiclesByRoute?key=#{@api_key}&route_id=#{route_id}")
+		vehicles = Array.new
+		response["vehicles"].each do |vehicle|
+			vehicles << Vehicle.new(vehicle)
+		end
+		return vehicles
+	end
+
+	def get_trip_by_id(trip_id)
+		response = self.class.get("/GetTrip?key=#{@api_key}&trip_id=#{trip_id}")
+		return Trip.new(response["trips"].first)
 	end
 
 end
