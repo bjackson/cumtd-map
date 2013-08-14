@@ -6,14 +6,27 @@
     <title>CUMTD bus locations</title>
     <link href="https://developers.google.com/maps/documentation/javascript/examples/default.css" rel="stylesheet">
     <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&key=AIzaSyD1P5VHyov7Z9WT4PgioSArkypot7JLSVs&sensor=false&libraries=adsense"></script>
+    <script type="text/javascript" src="http://google-maps-utility-library-v3.googlecode.com/svn/trunk/richmarker/src/richmarker.js"></script>
+    <link href='http://fonts.googleapis.com/css?family=Doppio+One|Londrina+Shadow' rel='stylesheet' type='text/css'>
+    <style type="text/css">
+
+        #routeIcon {
+         display: inline-block;
+         background-origin: padding-box;
+         background-clip: border-box;
+         background-size: auto;
+         font-family: 'Doppio One';
+        }
+    </style>
     <script>
 var adunit;
 
 function createMarker (vehicle, map) {
-  var marker = new google.maps.Marker({
+  var marker = new RichMarker({
       position: new google.maps.LatLng(vehicle.lat, vehicle.lon),
       map: map,
-      title: vehicle.trip.shape_id
+      title: vehicle.trip.shape_id,
+      content: '<span id="routeIcon" style="background-color: #' + vehicle.route[0].route_color + '; color: #' + vehicle.route[0].route_text_color + '"' +  '>' + vehicle.route[0].route_short_name  + vehicle.trip.direction + '</span>'
   });
 
   var contentString = '<h1>' + vehicle.trip.route_id + " - " + vehicle.trip.direction + '</h1>';
@@ -29,6 +42,12 @@ function createMarker (vehicle, map) {
   });
   
   return marker;
+}
+
+
+function setMarkerContent() {
+        var content = document.getElementById('marker-content').value;
+        marker.setContent(content);
 }
 
 function initialize() {
