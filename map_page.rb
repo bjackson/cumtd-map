@@ -9,19 +9,19 @@ require 'colorize'
 
 
 c = CUMTD.new(ENV["CUMTD_API_KEY"], nil, nil, :no_serialize)
-vehicles = Array.new
+vehicles = c.get_vehicles
 
 vehicle_refresher = Rufus::Scheduler.new
 
-ARGV.each do |arg|
-	if arg == "load"
-		File.open(File.expand_path(File.join(File.dirname(__FILE__), "vehicles.yaml")),"rb") {|f| vehicles = YAML.load(f)}
-	else
-		vehicles = c.get_vehicles
-		puts "Refreshed vehicles at: " + Time.now.strftime("%l:%M:%S").blue
-		c.serialize_vehicles(vehicles, File.expand_path(File.join(File.dirname(__FILE__), "vehicles.yaml")))
-	end
-end
+# ARGV.each do |arg|
+# 	if arg == "load"
+# 		File.open(File.expand_path(File.join(File.dirname(__FILE__), "vehicles.yaml")),"rb") {|f| vehicles = YAML.load(f)}
+# 	else
+# 		vehicles = c.get_vehicles
+# 		puts "Refreshed vehicles at: " + Time.now.strftime("%l:%M:%S").blue
+# 		c.serialize_vehicles(vehicles, File.expand_path(File.join(File.dirname(__FILE__), "vehicles.yaml")))
+# 	end
+# end
 
 #File.open(File.expand_path(File.join(File.dirname(__FILE__), "vehicles copy.yaml")),"rb") {|f| vehicles = YAML.load(f)}
 
