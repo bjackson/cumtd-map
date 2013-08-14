@@ -2,5 +2,5 @@ source 'https://rubygems.org'
 gem "sinatra"
 gem 'cumtd'
 gem 'json'
-gem 'rufus-scheduler'
+gem 'rufus-scheduler', :github => 'jmettraux/rufus-scheduler'
 gem 'colorize'
