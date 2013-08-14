@@ -16,7 +16,7 @@ function createMarker (vehicle, map) {
       title: vehicle.trip.shape_id
   });
 
-  var contentString = '<h1 font="Verdana">' + vehicle.trip.route_id + " - " + vehicle.trip.direction + '</h1>';
+  var contentString = '<h1>' + vehicle.trip.route_id + " - " + vehicle.trip.direction + '</h1>';
 
   google.maps.event.addListener(marker, 'click', function() {
       infowindow.open(map,marker);
@@ -53,7 +53,7 @@ function initialize() {
   var adUnitDiv = document.createElement('div');
   var adUnitOptions = {
     format: google.maps.adsense.AdFormat.HALF_BANNER,
-    position: google.maps.ControlPosition.LEFT_BOTTOM,
+    position: google.maps.ControlPosition.BOTTOM_LEFT,
     backgroundColor: '#c4d4f3',
     borderColor: '#e5ecf9',
     titleColor: '#0000cc',
