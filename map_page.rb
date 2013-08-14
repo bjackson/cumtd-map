@@ -5,7 +5,7 @@ require 'rufus-scheduler'
 require 'yaml'
 require 'colorize'
 
-c = CUMTD.new(ENV["CUMTD_API_KEY"], "/Users/brettjackson/code/cumtd/data/stops.yaml","/Users/brettjackson/code/cumtd/data/routes.yaml")
+c = CUMTD.new(ENV["CUMTD_API_KEY"])
 vehicles = Array.new
 
 vehicle_refresher = Rufus::Scheduler.new
