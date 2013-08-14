@@ -5,8 +5,9 @@
     <meta charset="utf-8">
     <title>CUMTD bus locations</title>
     <link href="https://developers.google.com/maps/documentation/javascript/examples/default.css" rel="stylesheet">
-    <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&key=AIzaSyD1P5VHyov7Z9WT4PgioSArkypot7JLSVs&sensor=false"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&key=AIzaSyD1P5VHyov7Z9WT4PgioSArkypot7JLSVs&sensor=false&libraries=adsense"></script>
     <script>
+var adunit;
 
 function createMarker (vehicle, map) {
   var marker = new google.maps.Marker({
@@ -48,6 +49,22 @@ function initialize() {
   {
       markers[i] = createMarker(vehicles[i], map);  
   }
+
+  var adUnitDiv = document.createElement('div');
+  var adUnitOptions = {
+    format: google.maps.adsense.AdFormat.HALF_BANNER,
+    position: google.maps.ControlPosition.LEFT_BOTTOM,
+    backgroundColor: '#c4d4f3',
+    borderColor: '#e5ecf9',
+    titleColor: '#0000cc',
+    textColor: '#000000',
+    urlColor: '#009900',
+    map: map,
+    visible: true,
+    publisherId: 'pub-1875581769610425'
+  }
+  adUnit = new google.maps.adsense.AdUnit(adUnitDiv, adUnitOptions);
+
 
 
 }
