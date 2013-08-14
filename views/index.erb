@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+    <meta charset="utf-8">
+    <title>CUMTD bus locations</title>
+    <link href="https://developers.google.com/maps/documentation/javascript/examples/default.css" rel="stylesheet">
+    <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&key=AIzaSyD1P5VHyov7Z9WT4PgioSArkypot7JLSVs&sensor=false"></script>
+    <script>
+
+function createMarker (vehicle, map) {
+  var marker = new google.maps.Marker({
+      position: new google.maps.LatLng(vehicle.lat, vehicle.lon),
+      map: map,
+      title: vehicle.trip.shape_id
+  });
+
+  var contentString = '<h1 font="Verdana">' + vehicle.trip.route_id + " - " + vehicle.trip.direction + '</h1>';
+
+  google.maps.event.addListener(marker, 'click', function() {
+      infowindow.open(map,marker);
+      infowindow.setContent(contentString)
+  });
+
+
+  infowindow = new google.maps.InfoWindow({
+    content: contentString
+  });
+  
+  return marker;
+}
+
+function initialize() {
+  var myLatlng = new google.maps.LatLng(40.104066, -88.230332);
+  var bounds = new google.maps.LatLngBounds();
+  var mapOptions = {
+    zoom: 15,
+    center: myLatlng,
+    mapTypeId: google.maps.MapTypeId.ROADMAP
+  }
+  var map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
+  google.maps.visualRefresh = true;
+
+
+  var vehicles = <%= @vehicles.to_json %>;
+  markers = {};
+  for (var i = 0; i < vehicles.length; i++)
+  {
+      markers[i] = createMarker(vehicles[i], map);  
+  }
+
+
+}
+
+
+
+google.maps.event.addDomListener(window, 'load', initialize);
+
+    </script>
+  </head>
+  <body>
+    <div id="map-canvas"></div>
+  </body>
+</html>

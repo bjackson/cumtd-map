@@ -1,0 +1,343 @@
+---
+- !ruby/object:Vehicle
+  vehicle_id: '1166'
+  trip: !ruby/object:Trip
+    trip_id: '[@7.0.41903462@][4][1243545628328]/5__T1MF'
+    trip_headsign: WEST - ILLINOIS TERMINAL
+    route_id: TEAL EVENING
+    block_id: T1MF
+    direction: West
+    service_id: T1MF
+    shape_id: TEAL EVENING 12
+  location:
+    :lat: 40.114507
+    :lon: -88.233333
+  previous_stop_id: WHT4TH:1
+  next_stop_id: WHT1ST:1
+  origin_stop_id: ODSS:1
+  destination_stop_id: IT:5
+  last_updated: 2013-08-13 20:52:54.000000000 -05:00
+- !ruby/object:Vehicle
+  vehicle_id: '1197'
+  trip: !ruby/object:Trip
+    trip_id: '[@15.0.63189138@][2][1338407799588]/12__Y1MF'
+    trip_headsign: SOUTH - SAVOY
+    route_id: YELLOW EVENING
+    block_id: Y1MF
+    direction: South
+    service_id: Y1MF
+    shape_id: 100S
+  location:
+    :lat: 40.06897
+    :lon: -88.244083
+  previous_stop_id: CTSWIN:1
+  next_stop_id: CTS1ST:3
+  origin_stop_id: MEIJER:1
+  destination_stop_id: SWALMART:1
+  last_updated: 2013-08-13 20:52:27.000000000 -05:00
+- !ruby/object:Vehicle
+  vehicle_id: '1181'
+  trip: !ruby/object:Trip
+    trip_id: '[@15.0.67924657@][2][1363728725942]/91__G3MF'
+    trip_headsign: SOUTH - CAMPUS
+    route_id: SILVER LIMITED EVENING
+    block_id: G3MF
+    direction: 
+    service_id: G3MF
+    shape_id: '[@15.0.67924657@]7'
+  location:
+    :lat: 40.110517
+    :lon: -88.227417
+  previous_stop_id: IU:2
+  next_stop_id: WRTCHAL:4
+  origin_stop_id: LSE:8
+  destination_stop_id: PLAZA:4
+  last_updated: 2013-08-13 20:52:33.000000000 -05:00
+- !ruby/object:Vehicle
+  vehicle_id: '0336'
+  trip: !ruby/object:Trip
+    trip_id: 8GN519__SV4MF
+    trip_headsign: WEST - PARKLAND COLLEGE
+    route_id: GREY EVENING
+    block_id: SV4MF
+    direction: West
+    service_id: SV4MF
+    shape_id: 70W
+  location:
+    :lat: 40.115647
+    :lon: -88.242917
+  previous_stop_id: WLNTBLY:2
+  next_stop_id: MNFREMNT:1
+  origin_stop_id: LSE:2
+  destination_stop_id: PKLN:1
+  last_updated: 2013-08-13 20:52:54.000000000 -05:00
+- !ruby/object:Vehicle
+  vehicle_id: '1178'
+  trip: !ruby/object:Trip
+    trip_id: '[@7.0.41201218@][4][1243955118234]/23__BB2MF'
+    trip_headsign: WEST -COUNTRY FAIR / PARKLAND
+    route_id: GREEN EVENING
+    block_id: BB2MF
+    direction: West
+    service_id: BB2MF
+    shape_id: 50W GREEN 55
+  location:
+    :lat: 40.103107
+    :lon: -88.200083
+  previous_stop_id: FRLN:2
+  next_stop_id: VINWASH:2
+  origin_stop_id: ODSS:1
+  destination_stop_id: PKLN:1
+  last_updated: 2013-08-13 20:52:45.000000000 -05:00
+- !ruby/object:Vehicle
+  vehicle_id: '1351'
+  trip: !ruby/object:Trip
+    trip_id: '[@15.0.63189138@][1][1338405367103]/3__Y3MF'
+    trip_headsign: NORTH - MEIJER
+    route_id: YELLOW EVENING
+    block_id: Y3MF
+    direction: North
+    service_id: Y3MF
+    shape_id: 100N
+  location:
+    :lat: 40.118307
+    :lon: -88.241833
+  previous_stop_id: WLNTMN:2
+  next_stop_id: WLNTCLMBA:2
+  origin_stop_id: SWALMART:1
+  destination_stop_id: MEIJER:1
+  last_updated: 2013-08-13 20:52:51.000000000 -05:00
+- !ruby/object:Vehicle
+  vehicle_id: '1174'
+  trip: !ruby/object:Trip
+    trip_id: 7R719__GN8MF
+    trip_headsign: EAST - LINCOLN SQUARE
+    route_id: GREY EVENING
+    block_id: GN8MF
+    direction: East
+    service_id: GN8MF
+    shape_id: 70E
+  location:
+    :lat: 40.118307
+    :lon: -88.2145
+  previous_stop_id: CHCHORCD:3
+  next_stop_id: UNICENT:3
+  origin_stop_id: PKLN:1
+  destination_stop_id: LSE:2
+  last_updated: 2013-08-13 20:52:48.000000000 -05:00
+- !ruby/object:Vehicle
+  vehicle_id: '0322'
+  trip: !ruby/object:Trip
+    trip_id: '[@7.0.41903462@][3][1243545697437]/19__T3MF'
+    trip_headsign: EAST - ORCHARD DOWNS
+    route_id: TEAL EVENING
+    block_id: T3MF
+    direction: East
+    service_id: T3MF
+    shape_id: TEAL EVENING 13
+  location:
+    :lat: 40.09823
+    :lon: -88.209667
+  previous_stop_id: RACEMUMFRD:4
+  next_stop_id: ODSS:1
+  origin_stop_id: IT:5
+  destination_stop_id: ODSS:1
+  last_updated: 2013-08-13 20:52:33.000000000 -05:00
+- !ruby/object:Vehicle
+  vehicle_id: '1162'
+  trip: !ruby/object:Trip
+    trip_id: '[@7.0.41201218@][3][1243953754500]/3__GR2MF'
+    trip_headsign: EAST - ORCHARD DOWNS
+    route_id: GREEN EVENING
+    block_id: GR2MF
+    direction: East
+    service_id: GR2MF
+    shape_id: GREEN EVENING 52
+  location:
+    :lat: 40.091707
+    :lon: -88.195667
+  previous_stop_id: SLVRCTGRV:4
+  next_stop_id: SLVRVWTR:3
+  origin_stop_id: PKLN:1
+  destination_stop_id: ODSS:1
+  last_updated: 2013-08-13 20:52:54.000000000 -05:00
+- !ruby/object:Vehicle
+  vehicle_id: '0333'
+  trip: !ruby/object:Trip
+    trip_id: '[@15.0.63189138@][2][1338407799588]/14__Y6MF'
+    trip_headsign: SOUTH - SAVOY
+    route_id: YELLOW EVENING
+    block_id: Y6MF
+    direction: South
+    service_id: Y6MF
+    shape_id: 100S
+  location:
+    :lat: 40.14649
+    :lon: -88.26025
+  previous_stop_id: MEIJER:1
+  next_stop_id: PSPCTINTER:7
+  origin_stop_id: MEIJER:1
+  destination_stop_id: SWALMART:1
+  last_updated: 2013-08-13 20:52:51.000000000 -05:00
+- !ruby/object:Vehicle
+  vehicle_id: '0317'
+  trip: !ruby/object:Trip
+    trip_id: '[@15.0.63189138@][2][1338407799588]/13__Y5MF'
+    trip_headsign: SOUTH - SAVOY
+    route_id: YELLOW EVENING
+    block_id: Y5MF
+    direction: South
+    service_id: Y5MF
+    shape_id: 100S
+  location:
+    :lat: 40.11533
+    :lon: -88.2415
+  previous_stop_id: MNCHSNT:3
+  next_stop_id: MKTLGN:4
+  origin_stop_id: MEIJER:1
+  destination_stop_id: SWALMART:1
+  last_updated: 2013-08-13 20:52:45.000000000 -05:00
+- !ruby/object:Vehicle
+  vehicle_id: '0326'
+  trip: !ruby/object:Trip
+    trip_id: '[@7.0.41201218@][4][1243955118234]/22__L2MF'
+    trip_headsign: WEST -COUNTRY FAIR / PARKLAND
+    route_id: GREEN EVENING
+    block_id: L2MF
+    direction: West
+    service_id: L2MF
+    shape_id: 50W GREEN 55
+  location:
+    :lat: 40.11362
+    :lon: -88.27925
+  previous_stop_id: BL:2
+  next_stop_id: CFDSPFLD:1
+  origin_stop_id: ODSS:1
+  destination_stop_id: PKLN:1
+  last_updated: 2013-08-13 20:52:42.000000000 -05:00
+- !ruby/object:Vehicle
+  vehicle_id: '1179'
+  trip: !ruby/object:Trip
+    trip_id: '[@15.0.63189138@][1][1338405367103]/4__Y8MF'
+    trip_headsign: NORTH - MEIJER
+    route_id: YELLOW EVENING
+    block_id: Y8MF
+    direction: North
+    service_id: Y8MF
+    shape_id: 100N
+  location:
+    :lat: 40.074037
+    :lon: -88.249667
+  previous_stop_id: WDFLDSV16:2
+  next_stop_id: WDSRNEIL:2
+  origin_stop_id: SWALMART:1
+  destination_stop_id: MEIJER:1
+  last_updated: 2013-08-13 20:52:51.000000000 -05:00
+- !ruby/object:Vehicle
+  vehicle_id: '0331'
+  trip: !ruby/object:Trip
+    trip_id: '[@7.0.41201552@][3][1238433211390]/11__O4MF'
+    trip_headsign: EAST - URBANA WALMART
+    route_id: ORANGE EVENING
+    block_id: O4MF
+    direction: East
+    service_id: O4MF
+    shape_id: E ORANGE EVE
+  location:
+    :lat: 40.105703
+    :lon: -88.181583
+  previous_stop_id: WASHTIM:3
+  next_stop_id: WASHSCWD:3
+  origin_stop_id: LSE:2
+  destination_stop_id: UWALMART:1
+  last_updated: 2013-08-13 20:52:48.000000000 -05:00
+- !ruby/object:Vehicle
+  vehicle_id: '0321'
+  trip: !ruby/object:Trip
+    trip_id: '[@7.0.41677083@][1][1238529565531]/4__I1LIM'
+    trip_headsign: NORTH - NORTH LINCOLN
+    route_id: ILLINI LIMITED EVENING
+    block_id: I1LIM
+    direction: North
+    service_id: I1LIM
+    shape_id: 22N 316
+  location:
+    :lat: 40.110453
+    :lon: -88.225583
+  previous_stop_id: GRNMAT:3
+  next_stop_id: GWNMN:2
+  origin_stop_id: ARYWRT:3
+  destination_stop_id: LNCLNKLRNY:1
+  last_updated: 2013-08-13 20:52:51.000000000 -05:00
+- !ruby/object:Vehicle
+  vehicle_id: '1004'
+  trip: !ruby/object:Trip
+    trip_id: '[@15.0.64613606@][1][1339515184324]/79__RUB2MF'
+    trip_headsign: NORTH - CUNNINGHAM
+    route_id: RUBY EVENING
+    block_id: RUB2MF
+    direction: North
+    service_id: RUB2MF
+    shape_id: '[@15.0.64613606@]1'
+  location:
+    :lat: 40.133317
+    :lon: -88.198083
+  previous_stop_id: KNYNSTKSHK:3
+  next_stop_id: OBRNANTHNY:7
+  origin_stop_id: UNIMTD:3
+  destination_stop_id: ARPRTCNGHM:3
+  last_updated: 2013-08-13 20:52:54.000000000 -05:00
+- !ruby/object:Vehicle
+  vehicle_id: '1170'
+  trip: !ruby/object:Trip
+    trip_id: '[@7.0.41201218@][3][1243953754500]/4__GN3MF'
+    trip_headsign: EAST - ORCHARD DOWNS
+    route_id: GREEN EVENING
+    block_id: GN3MF
+    direction: East
+    service_id: GN3MF
+    shape_id: GREEN EVENING 52
+  location:
+    :lat: 40.114887
+    :lon: -88.245083
+  previous_stop_id: RNDLFWHT:2
+  next_stop_id: UNIRNDLF:2
+  origin_stop_id: PKLN:1
+  destination_stop_id: ODSS:1
+  last_updated: 2013-08-13 20:52:51.000000000 -05:00
+- !ruby/object:Vehicle
+  vehicle_id: 0960
+  trip: !ruby/object:Trip
+    trip_id: '[@14.0.57492638@][20][1305142431477]/9__LM2MF'
+    trip_headsign: B - WINDSOR & DUNCAN
+    route_id: LIME EVENING
+    block_id: LM2MF
+    direction: B
+    service_id: LM2MF
+    shape_id: LIME 152
+  location:
+    :lat: 40.083917
+    :lon: -88.292833
+  previous_stop_id: WDSRLKWD:3
+  next_stop_id: WDSRSCTDL:3
+  origin_stop_id: CF:1
+  destination_stop_id: CF:1
+  last_updated: 2013-08-13 20:52:54.000000000 -05:00
+- !ruby/object:Vehicle
+  vehicle_id: '0556'
+  trip: !ruby/object:Trip
+    trip_id: '[@14.0.57492638@][10][1305141424718]/2__LM1MF'
+    trip_headsign: A - WINDSOR & DUNCAN
+    route_id: LIME EVENING
+    block_id: LM1MF
+    direction: A
+    service_id: LM1MF
+    shape_id: LIME 151
+  location:
+    :lat: 40.112923
+    :lon: -88.281917
+  previous_stop_id: RBRCFD:6
+  next_stop_id: CRSNTJOHN:4
+  origin_stop_id: CF:1
+  destination_stop_id: CF:1
+  last_updated: 2013-08-13 20:52:42.000000000 -05:00

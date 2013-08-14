@@ -1,3 +1,4 @@
+require 'json'
 class Vehicle < CUMTD
 	def initialize(json)
 		@vehicle_id = json["vehicle_id"]
@@ -40,6 +41,15 @@ class Vehicle < CUMTD
 
 	def last_updated
 		@last_updated
+	end
+
+	def to_json(*a)
+		{
+		'vehicle_id' => @vehicle_id,
+		'lat' => @location[:lat],
+		'lon' => @location[:lon],
+		'trip' => @trip
+		}.to_json(*a)
 	end
 	
 end

@@ -1,3 +1,4 @@
+require 'json'
 class Trip < CUMTD
 	def initialize(json)
 		@trip_id = json["trip_id"]
@@ -9,6 +10,18 @@ class Trip < CUMTD
 		@shape_id = json["shape_id"]
 	end
 	
+	def to_json(*a)
+		{
+		'trip_id' => @trip_id,
+		'trip_headsign' => @trip_headsign,
+		'route_id' => @route_id,
+		'block_id' => @block_id,
+		'direction' => @direction,
+		'service_id' => @service_id,
+		'shape_id' => @shape_id
+		}.to_json(*a)
+	end
+
 	def trip_id
 		@trip_id
 	end

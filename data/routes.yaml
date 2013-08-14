@@ -1,0 +1,259 @@
+---
+- !ruby/object:Route
+  route_color: 68b6e5
+  route_id: AIR BUS
+  route_long_name: Air Bus
+  route_short_name: '27'
+  route_text_color: '000000'
+- !ruby/object:Route
+  route_color: 68b6e5
+  route_id: AIR BUS WEEKEND
+  route_long_name: Air Bus Weekend
+  route_short_name: '270'
+  route_text_color: '000000'
+- !ruby/object:Route
+  route_color: 355caa
+  route_id: BLUE
+  route_long_name: Blue
+  route_short_name: '4'
+  route_text_color: ffffff
+- !ruby/object:Route
+  route_color: 9e8966
+  route_id: BRONZE
+  route_long_name: Bronze
+  route_short_name: '8'
+  route_text_color: '000000'
+- !ruby/object:Route
+  route_color: '823822'
+  route_id: BROWN
+  route_long_name: Brown
+  route_short_name: '9'
+  route_text_color: ffffff
+- !ruby/object:Route
+  route_color: c7994a
+  route_id: GOLD
+  route_long_name: Gold
+  route_short_name: '10'
+  route_text_color: '000000'
+- !ruby/object:Route
+  route_color: c5972e
+  route_id: GOLDHOPPER
+  route_long_name: Goldhopper
+  route_short_name: '10'
+  route_text_color: '000000'
+- !ruby/object:Route
+  route_color: 008063
+  route_id: GREEN
+  route_long_name: Green
+  route_short_name: '5'
+  route_text_color: ffffff
+- !ruby/object:Route
+  route_color: 008063
+  route_id: GREEN EVENING
+  route_long_name: Green Evening
+  route_short_name: '50'
+  route_text_color: ffffff
+- !ruby/object:Route
+  route_color: 008063
+  route_id: GREEN EXPRESS
+  route_long_name: Green Express
+  route_short_name: '5'
+  route_text_color: ffffff
+- !ruby/object:Route
+  route_color: 008063
+  route_id: GREEN WEEKEND
+  route_long_name: Green Weekend
+  route_short_name: '50'
+  route_text_color: ffffff
+- !ruby/object:Route
+  route_color: '808285'
+  route_id: GREY
+  route_long_name: Grey
+  route_short_name: '7'
+  route_text_color: '000000'
+- !ruby/object:Route
+  route_color: '808285'
+  route_id: GREY EVENING
+  route_long_name: Grey Evening
+  route_short_name: '70'
+  route_text_color: '000000'
+- !ruby/object:Route
+  route_color: '808285'
+  route_id: GREY WEEKEND
+  route_long_name: Grey Weekend
+  route_short_name: '70'
+  route_text_color: '000000'
+- !ruby/object:Route
+  route_color: 5a1d5a
+  route_id: ILLINI LIMITED
+  route_long_name: Illini Limited
+  route_short_name: '22'
+  route_text_color: ffffff
+- !ruby/object:Route
+  route_color: 5a1d5a
+  route_id: ILLINI LIMITED EVENING
+  route_long_name: Illini Limited Evening
+  route_short_name: '220'
+  route_text_color: ffffff
+- !ruby/object:Route
+  route_color: 5a1d5a
+  route_id: ILLINI LIMITED WEEKEND
+  route_long_name: Illini Limited Weekend
+  route_short_name: '220'
+  route_text_color: ffffff
+- !ruby/object:Route
+  route_color: a78bc0
+  route_id: LAVENDER
+  route_long_name: Lavender
+  route_short_name: '3'
+  route_text_color: '000000'
+- !ruby/object:Route
+  route_color: a685ff
+  route_id: LAVENDER SATURDAY
+  route_long_name: Lavender Saturday
+  route_short_name: '30'
+  route_text_color: '000000'
+- !ruby/object:Route
+  route_color: b2d235
+  route_id: LIME EVENING
+  route_long_name: Lime Evening
+  route_short_name: '180'
+  route_text_color: '000000'
+- !ruby/object:Route
+  route_color: b2d235
+  route_id: LIME WEEKEND
+  route_long_name: Lime Weekend
+  route_short_name: '180'
+  route_text_color: '000000'
+- !ruby/object:Route
+  route_color: 2b3088
+  route_id: NAVY
+  route_long_name: Navy
+  route_short_name: '14'
+  route_text_color: ffffff
+- !ruby/object:Route
+  route_color: f99f2a
+  route_id: ORANGE
+  route_long_name: Orange
+  route_short_name: '6'
+  route_text_color: '000000'
+- !ruby/object:Route
+  route_color: f99f2a
+  route_id: ORANGE EVENING
+  route_long_name: Orange Evening
+  route_short_name: '60'
+  route_text_color: '000000'
+- !ruby/object:Route
+  route_color: ff8f0f
+  route_id: ORANGE SATURDAY
+  route_long_name: Orange Saturday
+  route_short_name: '60'
+  route_text_color: '000000'
+- !ruby/object:Route
+  route_color: ff8f0f
+  route_id: ORANGE SUNDAY
+  route_long_name: Orange Sunday
+  route_short_name: '60'
+  route_text_color: '000000'
+- !ruby/object:Route
+  route_color: f99f2a
+  route_id: ORANGEHOPPER
+  route_long_name: Orangehopper
+  route_short_name: '6'
+  route_text_color: '000000'
+- !ruby/object:Route
+  route_color: 70637d
+  route_id: PLUM
+  route_long_name: Plum
+  route_short_name: '190'
+  route_text_color: ffffff
+- !ruby/object:Route
+  route_color: ed1c24
+  route_id: RED
+  route_long_name: Red
+  route_short_name: '2'
+  route_text_color: '000000'
+- !ruby/object:Route
+  route_color: ff0000
+  route_id: RED SATURDAY
+  route_long_name: Red Saturday
+  route_short_name: '20'
+  route_text_color: '000000'
+- !ruby/object:Route
+  route_color: eb008b
+  route_id: RUBY
+  route_long_name: Ruby
+  route_short_name: '11'
+  route_text_color: '000000'
+- !ruby/object:Route
+  route_color: eb008b
+  route_id: RUBY EVENING
+  route_long_name: Ruby Evening
+  route_short_name: '110'
+  route_text_color: '000000'
+- !ruby/object:Route
+  route_color: eb008b
+  route_id: RUBY WEEKEND
+  route_long_name: Ruby Weekend
+  route_short_name: '110'
+  route_text_color: '000000'
+- !ruby/object:Route
+  route_color: cccccc
+  route_id: SILVER
+  route_long_name: Silver
+  route_short_name: '13'
+  route_text_color: '000000'
+- !ruby/object:Route
+  route_color: d1d3d4
+  route_id: SILVER LIMITED EVENING
+  route_long_name: Silver Limited Evening
+  route_short_name: '130'
+  route_text_color: '000000'
+- !ruby/object:Route
+  route_color: d1d3d4
+  route_id: SILVER LIMITED WEEKEND
+  route_long_name: Silver Limited Weekend
+  route_short_name: '130'
+  route_text_color: '000000'
+- !ruby/object:Route
+  route_color: 006991
+  route_id: TEAL
+  route_long_name: Teal
+  route_short_name: '12'
+  route_text_color: ffffff
+- !ruby/object:Route
+  route_color: 006991
+  route_id: TEAL EVENING
+  route_long_name: Teal Evening
+  route_short_name: '120'
+  route_text_color: ffffff
+- !ruby/object:Route
+  route_color: 006991
+  route_id: TEAL WEEKEND
+  route_long_name: Teal Weekend
+  route_short_name: '120'
+  route_text_color: ffffff
+- !ruby/object:Route
+  route_color: fcee1f
+  route_id: YELLOW
+  route_long_name: Yellow
+  route_short_name: '1'
+  route_text_color: '000000'
+- !ruby/object:Route
+  route_color: fcee1f
+  route_id: YELLOW EVENING
+  route_long_name: Yellow Evening
+  route_short_name: '100'
+  route_text_color: '000000'
+- !ruby/object:Route
+  route_color: fcee1f
+  route_id: YELLOW WEEKEND
+  route_long_name: Yellow Weekend
+  route_short_name: '100'
+  route_text_color: '000000'
+- !ruby/object:Route
+  route_color: fcee1f
+  route_id: YELLOWHOPPER
+  route_long_name: Yellowhopper
+  route_short_name: '1'
+  route_text_color: '000000'

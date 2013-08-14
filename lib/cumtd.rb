@@ -16,7 +16,7 @@ class CUMTD
 		@@all_stops = Array.new
 		if stops_file
 			object = nil
-			File.open(stops_file,"rb") {|f| @@all_stops = Marshal.load(f)}
+			File.open(stops_file,"rb") {|f| @@all_stops = YAML.load(f)}
 		else
 			self.get_stops
 		end
@@ -24,13 +24,12 @@ class CUMTD
 		@@all_routes = Array.new
 		if routes_file
 			object = nil
-			File.open(routes_file,"rb") {|f| @@all_routes = Marshal.load(f)}
+			File.open(routes_file,"rb") {|f| @@all_routes = YAML.load(f)}
 		else
 			self.get_routes
 		end
 
 		unless serialize_path == :no_serialize
-			p File.join(serialize_path, 'stops')
 			serialize_stops(File.join(serialize_path, 'stops.yaml'))
 			serialize_routes(File.join(serialize_path, 'routes.yaml'))
 		end
@@ -58,6 +57,12 @@ class CUMTD
 	def serialize_routes(file_location)
 		File.open(file_location, "wb") do |file|
 			YAML.dump(@@all_routes,file)
+		end
+	end
+
+	def serialize_vehicles(vehicles, file_location)
+		File.open(file_location, "wb") do |file|
+			YAML.dump(vehicles,file)
 		end
 	end
 
