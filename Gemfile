@@ -7,4 +7,5 @@ gem 'colorize'
 gem 'httparty'
 
 gem 'sinatra-assetpack', :require => 'sinatra/assetpack'
+gem 'builder'
 ruby "2.0.0"
