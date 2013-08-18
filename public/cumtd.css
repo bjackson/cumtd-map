@@ -1,0 +1,45 @@
+#routeIcon {
+	 display: inline;
+	 position: absolute;
+	 font-family: 'Doppio One';
+	 border-radius: 40px;
+	 border-left: 10px;
+	 border-right: 10px;
+	 border-style: solid;
+}
+
+.rerouteIcon {
+	 display: inline-block;
+	 position: relative;
+	 font-family: 'Doppio One';
+	 border-radius: 40px;
+	 border-left: 10px;
+	 border-right: 10px;
+	 border-style: solid;
+}
+
+
+
+#reroutesPanel { 
+	position: absolute; 
+	top: 80%; 
+	left: 90%; 
+	z-index: 99;
+	width:10%;
+	font-family: 'Doppio One';
+	display: inline-block;
+	background-color: rgba(255,255,255,0.5);
+}
+
+.white-popup {
+  position: relative;
+  background: #FFF;
+  padding: 20px;
+  width: auto;
+  max-width: 500px;
+  margin: 20px auto;
+}
+
+body {
+	font-family: 'Doppio One';
+}

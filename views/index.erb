@@ -9,16 +9,10 @@
     <script type="text/javascript" src="http://google-maps-utility-library-v3.googlecode.com/svn/trunk/richmarker/src/richmarker.js"></script>
     <link href='http://fonts.googleapis.com/css?family=Doppio+One|Londrina+Shadow' rel='stylesheet' type='text/css'>
     <script type="text/javascript" src="jquery-latest.js"></script>
-    <style type="text/css">
-
-        #routeIcon {
-         display: inline-block;
-         background-origin: padding-box;
-         background-clip: border-box;
-         background-size: auto;
-         font-family: 'Doppio One';
-        }
-    </style>
+    <link rel="stylesheet" type="text-css" href="cumtd.css"></style>
+    <script type="text/javascript" src="underscore-min.js"></script>
+    <link rel="stylesheet" href="magnific-popup/magnific-popup.css"> 
+    <script src="magnific-popup/jquery.magnific-popup.js"></script> 
     <script>
 var adunit;
 var vehicles;
@@ -27,7 +21,18 @@ var refresh_at;
 var markers;
 var map;
 var theData;
+var reroutes;
+var rerouteDiv;
+
 markers = {};
+var rerIcons = new Array;
+
+function processReroute (rer) {
+
+  for (var i = 0; i < rer.affected_routes.length; i++) {
+    rerIcons.push('<span class="rerouteIcon" style="background-color: #' + rer.affected_routes[i].route_color + '; color: #' + rer.affected_routes[i].route_text_color + '; border-color: #' + rer.affected_routes[i].route_color + ';">' + rer.affected_routes[i].route_short_name + '</span>');
+  };
+}
 
 function refreshVehicles(do_now)
 {
@@ -39,21 +44,33 @@ function refreshVehicles(do_now)
       vehicles = data["vehicles"];
       refreshed_at = data["refresh_at"];
       refresh_at = data["refresh_at"];
+      reroutes = data["reroutes"];
     for (var i = 0; i < vehicles.length; i++)
     {
       if (markers[i] != null) { markers[i].setMap(null); };
       markers[i] = createMarker(vehicles[i], map);  
     }
+    rerouteDiv = document.getElementById('reroutesPanel');
+    for (var i = 0; i < reroutes.length; i++) {
+      rerIcons[i] = processReroute(reroutes[i]);
+    };
+    
+    $('#reroutesList').html(_.unique(rerIcons));
+    
     });
+
   }
 }
+
+
+
 
 function createMarker (vehicle, map) {
   var marker = new RichMarker({
       position: new google.maps.LatLng(vehicle.lat, vehicle.lon),
       map: map,
       title: vehicle.trip.shape_id,
-      content: '<span id="routeIcon" style="background-color: #' + vehicle.route[0].route_color + '; color: #' + vehicle.route[0].route_text_color + '"' +  '>' + vehicle.route[0].route_short_name  + vehicle.trip.direction + '</span>'
+      content: '<span id="routeIcon" style="background-color: #' + vehicle.route[0].route_color + '; color: #' + vehicle.route[0].route_text_color + '; border-color: #' + vehicle.route[0].route_color + ';"' +  '>' + vehicle.route[0].route_short_name  + vehicle.trip.direction + '</span>'
   });
 
   var contentString = '<h1>' + vehicle.trip.route_id + " - " + vehicle.trip.direction + '</h1>';
@@ -111,11 +128,38 @@ function initialize() {
 
 
 google.maps.event.addDomListener(window, 'load', initialize);
-var interval = setInterval(refreshVehicles, 3 * 1000);
-refreshVehicles("do");
+
+$(document).ready(function() {
+  $("#rerouteInfoLink").magnificPopup({type: 'inline'});
+});
+
+
+
     </script>
   </head>
   <body>
-    <div id="map-canvas"></div>
+      <div id="map-canvas"></div>
+      <div id="reroutesPanel">
+      Reroutes:
+        <div id="reroutesList"></div>
+        <small><a href="#reroutesPopup" class="open-popup-link"> read reroute info</a></small>
+      </div>
+      <div id="reroutesPopup" class="white-popup mfp-hide">
+        <% @reroutes.each do |reroute| %>
+          <h2><%= reroute.message %></h2>
+          <p><%= reroute.description %>
+          </br><%= reroute.start_date %> — <%= reroute.end_date %>
+          </br>Routes affected: <% reroute.affected_routes.each do |route| %> <%= route.route_long_name %> | <% end %>
+          </p>
+        <% end %>
+      </div>
+      <script type="text/javascript">
+          var interval = setInterval(refreshVehicles, 3 * 1000);
+          refreshVehicles("do");
+          $('.open-popup-link').magnificPopup({
+  type:'inline',
+  midClick: true // Allow opening popup on middle mouse click. Always set it to true if you don't provide alternative source in href.
+});
+      </script>
   </body>
 </html>
