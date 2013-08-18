@@ -8,6 +8,7 @@
     <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&key=AIzaSyD1P5VHyov7Z9WT4PgioSArkypot7JLSVs&sensor=false&libraries=adsense"></script>
     <script type="text/javascript" src="http://google-maps-utility-library-v3.googlecode.com/svn/trunk/richmarker/src/richmarker.js"></script>
     <link href='http://fonts.googleapis.com/css?family=Doppio+One|Londrina+Shadow' rel='stylesheet' type='text/css'>
+    <script type="text/javascript" src="jquery-latest.js"></script>
     <style type="text/css">
 
         #routeIcon {
@@ -20,6 +21,32 @@
     </style>
     <script>
 var adunit;
+var vehicles;
+var refreshed_at;
+var refresh_at;
+var markers;
+var map;
+var theData;
+markers = {};
+
+function refreshVehicles(do_now)
+{
+  if ($.now() / 1000 > refresh_at || do_now != null) 
+  {
+    console.log("refreshing");
+    $.getJSON("/update_locs.json", function (data, textStatus){
+      theData = data;
+      vehicles = data["vehicles"];
+      refreshed_at = data["refresh_at"];
+      refresh_at = data["refresh_at"];
+    for (var i = 0; i < vehicles.length; i++)
+    {
+      if (markers[i] != null) { markers[i].setMap(null); };
+      markers[i] = createMarker(vehicles[i], map);  
+    }
+    });
+  }
+}
 
 function createMarker (vehicle, map) {
   var marker = new RichMarker({
@@ -46,8 +73,8 @@ function createMarker (vehicle, map) {
 
 
 function setMarkerContent() {
-        var content = document.getElementById('marker-content').value;
-        marker.setContent(content);
+    var content = document.getElementById('marker-content').value;
+    marker.setContent(content);
 }
 
 function initialize() {
@@ -58,16 +85,10 @@ function initialize() {
     center: myLatlng,
     mapTypeId: google.maps.MapTypeId.ROADMAP
   }
-  var map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
+  map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
   google.maps.visualRefresh = true;
 
-
-  var vehicles = <%= @vehicles.to_json %>;
-  markers = {};
-  for (var i = 0; i < vehicles.length; i++)
-  {
-      markers[i] = createMarker(vehicles[i], map);  
-  }
+  refresh_at = <%= @refresh_at %>
 
   var adUnitDiv = document.createElement('div');
   var adUnitOptions = {
@@ -89,9 +110,9 @@ function initialize() {
 }
 
 
-
 google.maps.event.addDomListener(window, 'load', initialize);
-
+var interval = setInterval(refreshVehicles, 3 * 1000);
+refreshVehicles("do");
     </script>
   </head>
   <body>
